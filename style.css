@@ -421,3 +421,38 @@ body {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* ===============================
+   Premium Round Logo Styles (UPDATED)
+================================== */
+.logo-container {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.site-logo {
+    width: 140px;           /* កំណត់ប្រវែង (Width) */
+    height: 140px;          /* កំណត់កម្ពស់ (Height) ឱ្យស្មើ Width ទើបមូលល្អ */
+    object-fit: cover;      /* ការពារកុំឱ្យរូបភាពកន្ត្រាញ ឬខូចទ្រង់ទ្រាយ */
+    border-radius: 50%;     /* កាត់រូបភាពឱ្យទៅជារង្វង់មូល */
+    border: 3px solid var(--gold-main); /* ស៊ុមពណ៌មាសជុំវិញ */
+    padding: 5px;           /* គម្លាតរវាងស៊ុម និងរូបភាពខាងក្នុង */
+    background-color: rgba(0, 0, 0, 0.5); /* ផ្ទៃខាងក្រោយងងឹតបន្តិចការពាររូបភាពថ្លា (Transparent) */
+    
+    /* ពន្លឺពណ៌មាសខាងក្រៅ និងខាងក្នុងស៊ុម */
+    box-shadow: 0 0 25px rgba(220, 179, 77, 0.4), 
+                inset 0 0 15px rgba(220, 179, 77, 0.2); 
+    
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* ចលនាលោតរលោងស្អាត */
+    cursor: pointer;
+}
+
+.site-logo:hover {
+    transform: scale(1.1) rotate(5deg); /* ពេលដាក់ Mouse ពីលើ វានឹងរីកធំបន្តិច និងងាកតិចៗ */
+    box-shadow: 0 0 40px rgba(220, 179, 77, 0.8), 
+                inset 0 0 20px rgba(220, 179, 77, 0.5);
+    border-color: #fff; /* ស៊ុមប្តូរទៅពណ៌សពេល Hover ឱ្យកាន់តែលេចធ្លោ */
+}
