@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galaxy Global - Modern UI</title>
+    <title>Galaxy Global - Pro Pricing</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
@@ -14,58 +14,109 @@
     <header class="hero-section">
         <h1 class="main-title">GALAXY GLOBAL</h1>
         <p class="subtitle">THE WORLD'S LARGEST VIDEO PRODUCTION SQUAD</p>
-        <button class="btn primary-btn" onclick="handleAction('Free Sample')">GET 1 FREE SAMPLE</button>
+        <button class="btn primary-btn" onclick="alert('Sample will be sent to your email!')">GET 1 FREE SAMPLE</button>
     </header>
 
     <section class="masterpieces-section">
         <h2 class="section-title">OUR MASTERPIECES</h2>
         <div class="video-grid">
-            <div class="video-box" onclick="handleAction('Play Video 1')">
-                <div class="play-icon">▶</div>
-                <span>Play Video</span>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" title="YouTube video 1" allowfullscreen></iframe>
             </div>
-            <div class="video-box" onclick="handleAction('Play Video 2')">
-                <div class="play-icon">▶</div>
-                <span>Play Video</span>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video 2" allowfullscreen></iframe>
             </div>
-            <div class="video-box" onclick="handleAction('Play Video 3')">
-                <div class="play-icon">▶</div>
-                <span>Play Video</span>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" title="YouTube video 3" allowfullscreen></iframe>
             </div>
-            <div class="video-box" onclick="handleAction('Play Video 4')">
-                <div class="play-icon">▶</div>
-                <span>Play Video</span>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/3JZ_D3ELwOQ" title="YouTube video 4" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
     <section class="pricing-section">
-        <h2 class="section-title​" style="margin-top: 20px;">CHOOSE YOUR PLAN</h2>
+        <h2 class="section-title">CHOOSE YOUR PLAN</h2>
         <div class="pricing-grid">
+            
             <div class="pricing-card tilt-card">
                 <div class="card-content">
                     <h3 class="plan-name">BASIC</h3>
                     <p class="plan-price">$20</p>
-                    <button class="btn plan-btn" onclick="handleAction('Order Basic Plan')">ORDER NOW</button>
+                    <p class="plan-desc">ល្អសម្រាប់វីដេអូខ្លីៗ & TikTok</p>
+                    <ul class="plan-features">
+                        <li><span class="check">✔</span> វីដេអូដើមប្រវែងក្រោម 10 នាទី</li>
+                        <li><span class="check">✔</span> កាត់តមូលដ្ឋាន (Basic Editing)</li>
+                        <li><span class="check">✔</span> តន្ត្រីអត់ជាប់កម្មសិទ្ធិ</li>
+                        <li><span class="check">✔</span> កែតម្រូវបាន 2 ដង</li>
+                    </ul>
+                    <button class="btn plan-btn" onclick="openPaymentModal('BASIC', 20)">ORDER NOW</button>
                 </div>
             </div>
+
             <div class="pricing-card tilt-card popular">
-                <!-- <div class="popular-badge">MOST POPULAR</div> -->
+                <div class="popular-badge">MOST POPULAR</div>
                 <div class="card-content">
                     <h3 class="plan-name">BUSINESS</h3>
                     <p class="plan-price">$100</p>
-                    <button class="btn plan-btn glow-btn" onclick="handleAction('Order Business Plan')">ORDER NOW</button>
+                    <p class="plan-desc">ល្អសម្រាប់ YouTube & អាជីវកម្ម</p>
+                    <ul class="plan-features">
+                        <li><span class="check">✔</span> វីដេអូដើមប្រវែងក្រោម 45 នាទី</li>
+                        <li><span class="check">✔</span> កាត់តកម្រិតខ្ពស់ & Color Grading</li>
+                        <li><span class="check">✔</span> ដាក់អក្សររត់ពីក្រោម (Subtitles)</li>
+                        <li><span class="check">✔</span> កែតម្រូវមិនកំណត់</li>
+                    </ul>
+                    <button class="btn plan-btn glow-btn" onclick="openPaymentModal('BUSINESS', 100)">ORDER NOW</button>
                 </div>
             </div>
+
             <div class="pricing-card tilt-card">
                 <div class="card-content">
                     <h3 class="plan-name">PREMIUM</h3>
                     <p class="plan-price">$500</p>
-                    <button class="btn plan-btn" onclick="handleAction('Order Premium Plan')">ORDER NOW</button>
+                    <p class="plan-desc">កញ្ចប់ម៉ៅប្រចាំខែ (Unlimited)</p>
+                    <ul class="plan-features">
+                        <li><span class="check">✔</span> ស្នើសុំវីដេអូមិនកំណត់ក្នុង១ខែ</li>
+                        <li><span class="check">✔</span> មានអ្នកកាត់តផ្ទាល់ខ្លួន</li>
+                        <li><span class="check">✔</span> Motion Graphics & VFX</li>
+                        <li><span class="check">✔</span> ទទួលបានឯកសារដើម</li>
+                    </ul>
+                    <button class="btn plan-btn" onclick="openPaymentModal('PREMIUM', 500)">ORDER NOW</button>
                 </div>
             </div>
         </div>
     </section>
+
+    <div id="payment-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePaymentModal()">&times;</span>
+            <h2 class="modal-title">Complete Your Order</h2>
+            <p class="modal-subtitle" id="modal-plan-info">Plan: BASIC | Total: $20</p>
+
+            <div class="payment-tabs">
+                <button class="tab-btn active" onclick="switchPaymentMethod('card')">Credit Card</button>
+                <button class="tab-btn" onclick="switchPaymentMethod('qr')">QR KHQR</button>
+            </div>
+
+            <div id="method-card" class="payment-method-box active">
+                <input type="text" class="pay-input" placeholder="Cardholder Name" required>
+                <input type="text" class="pay-input" placeholder="Card Number (0000 0000 0000 0000)" maxlength="19" required>
+                <div class="input-row">
+                    <input type="text" class="pay-input" placeholder="MM/YY" maxlength="5" required>
+                    <input type="text" class="pay-input" placeholder="CVC" maxlength="3" required>
+                </div>
+                <button class="btn plan-btn glow-btn" style="width: 100%; margin-top: 15px;" onclick="processPayment()">PAY NOW</button>
+            </div>
+
+            <div id="method-qr" class="payment-method-box">
+                <div class="qr-container">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=GalaxyGlobalPayment&color=dcb34d&bgcolor=1f2029" alt="Scan QR to Pay">
+                </div>
+                <p class="qr-text">សូមស្កេន QR តាមរយៈកម្មវិធីធនាគាររបស់អ្នក (ABA, ACLEDA, ល។)</p>
+                <button class="btn plan-btn" style="width: 100%; margin-top: 10px;" onclick="processPayment()">I HAVE PAID</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
