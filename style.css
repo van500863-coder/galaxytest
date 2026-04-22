@@ -1,16 +1,6 @@
 /**
  * GALAXY GLOBAL - PRO PRICING UI
  * Description: Professional Video Production Portfolio & Pricing Table
- * Author: [ឈ្មោះរបស់អ្នក / Your GitHub Username]
- * * TABLE OF CONTENTS:
- * 1. Variables & General Reset
- * 2. Base Layout & Background
- * 3. Typography
- * 4. Header & Logo
- * 5. Buttons & Animations
- * 6. Masterpieces (Video Grid)
- * 7. Pricing Table
- * 8. Payment Modal
  */
 
 /* =========================================
@@ -44,7 +34,6 @@ body {
     position: relative;
 }
 
-/* Background Ambient Glow */
 .bg-glow {
     position: fixed;
     top: -20%;
@@ -60,7 +49,37 @@ body {
 }
 
 /* =========================================
-   3. Typography
+   3. Header & Premium Logo
+========================================= */
+.logo-container {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.site-logo {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--gold-main);
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 25px rgba(220, 179, 77, 0.4), inset 0 0 15px rgba(220, 179, 77, 0.2);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.site-logo:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 40px rgba(220, 179, 77, 0.8), inset 0 0 20px rgba(220, 179, 77, 0.5);
+    border-color: #fff;
+}
+
+/* =========================================
+   4. Typography
 ========================================= */
 .main-title {
     background: linear-gradient(to right, var(--gold-light), var(--gold-dark));
@@ -69,7 +88,7 @@ body {
     font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 800;
     letter-spacing: 3px;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 15px;
     text-shadow: 0px 10px 30px rgba(220, 179, 77, 0.2);
 }
@@ -100,36 +119,6 @@ body {
     height: 3px;
     background: var(--gold-main);
     border-radius: 5px;
-}
-
-/* =========================================
-   4. Header & Premium Logo
-========================================= */
-.logo-container {
-    margin-top: 20px;
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.site-logo {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid var(--gold-main);
-    padding: 5px;
-    background-color: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 25px rgba(220, 179, 77, 0.4), inset 0 0 15px rgba(220, 179, 77, 0.2);
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-}
-
-.site-logo:hover {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 0 40px rgba(220, 179, 77, 0.8), inset 0 0 20px rgba(220, 179, 77, 0.5);
-    border-color: #fff;
 }
 
 /* =========================================
@@ -177,7 +166,7 @@ body {
 .video-wrapper {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    padding-bottom: 56.25%;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.4);
@@ -242,12 +231,12 @@ body {
 .popular {
     background: linear-gradient(180deg, rgba(220, 179, 77, 0.08) 0%, var(--card-bg) 100%);
     border: 1px solid rgba(220, 179, 77, 0.4);
-    transform: scale(1.05); /* Scales up on larger screens */
+    transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
     .popular {
-        transform: scale(1); /* Reset scaling on mobile */
+        transform: scale(1);
     }
 }
 
@@ -288,7 +277,6 @@ body {
     text-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
-/* Pricing Feature List */
 .plan-features {
     list-style: none;
     text-align: left;
@@ -322,7 +310,7 @@ body {
 }
 
 /* =========================================
-   8. Payment Modal
+   8. Modals (Payment & Sample Form)
 ========================================= */
 .modal-overlay {
     position: fixed;
@@ -390,7 +378,7 @@ body {
     margin-bottom: 25px;
 }
 
-/* Payment Tabs */
+/* Modal Inputs & Forms */
 .payment-tabs {
     display: flex;
     background: rgba(0,0,0,0.5);
@@ -417,7 +405,6 @@ body {
     color: #000;
 }
 
-/* Payment Inputs */
 .payment-method-box {
     display: none;
     text-align: left;
@@ -439,6 +426,11 @@ body {
     font-size: 1rem;
     outline: none;
     transition: border 0.3s, box-shadow 0.3s;
+}
+
+textarea.pay-input {
+    resize: none;
+    font-family: inherit;
 }
 
 .pay-input:focus {
