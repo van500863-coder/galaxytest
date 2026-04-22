@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Global - Modern UI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <header class="hero-section">
+        <h1 class="main-title">GALAXY GLOBAL</h1>
+        <p class="subtitle">THE WORLD'S LARGEST VIDEO PRODUCTION SQUAD</p>
+        <button class="btn primary-btn" onclick="handleAction('Free Sample')">GET 1 FREE SAMPLE</button>
+    </header>
+
+    <section class="masterpieces-section">
+        <h2 class="section-title">OUR MASTERPIECES</h2>
+        <div class="video-grid">
+            <div class="video-box" onclick="handleAction('Play Video 1')">
+                <div class="play-icon">▶</div>
+                <span>Play Video</span>
+            </div>
+            <div class="video-box" onclick="handleAction('Play Video 2')">
+                <div class="play-icon">▶</div>
+                <span>Play Video</span>
+            </div>
+            <div class="video-box" onclick="handleAction('Play Video 3')">
+                <div class="play-icon">▶</div>
+                <span>Play Video</span>
+            </div>
+            <div class="video-box" onclick="handleAction('Play Video 4')">
+                <div class="play-icon">▶</div>
+                <span>Play Video</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section">
+        <h2 class="section-title​" style="margin-top: 20px;">CHOOSE YOUR PLAN</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card tilt-card">
+                <div class="card-content">
+                    <h3 class="plan-name">BASIC</h3>
+                    <p class="plan-price">$20</p>
+                    <button class="btn plan-btn" onclick="handleAction('Order Basic Plan')">ORDER NOW</button>
+                </div>
+            </div>
+            <div class="pricing-card tilt-card popular">
+                <!-- <div class="popular-badge">MOST POPULAR</div> -->
+                <div class="card-content">
+                    <h3 class="plan-name">BUSINESS</h3>
+                    <p class="plan-price">$100</p>
+                    <button class="btn plan-btn glow-btn" onclick="handleAction('Order Business Plan')">ORDER NOW</button>
+                </div>
+            </div>
+            <div class="pricing-card tilt-card">
+                <div class="card-content">
+                    <h3 class="plan-name">PREMIUM</h3>
+                    <p class="plan-price">$500</p>
+                    <button class="btn plan-btn" onclick="handleAction('Order Premium Plan')">ORDER NOW</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
