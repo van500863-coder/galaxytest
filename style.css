@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Outfit', sans-serif; /* Modern Font */
+    font-family: 'Outfit', sans-serif;
 }
 
 :root {
@@ -19,7 +19,7 @@ body {
     background-color: var(--bg-dark);
     color: #fff;
     text-align: center;
-    padding-bottom: 80px;
+    padding: 40px 20px 80px;
     overflow-x: hidden;
     position: relative;
 }
@@ -30,9 +30,11 @@ body {
     top: -20%;
     left: 50%;
     transform: translateX(-50%);
-    width: 80vw;
-    height: 80vw;
-    background: radial-gradient(circle, rgba(220, 179, 77, 0.08) 0%, rgba(0,0,0,0) 70%);
+    width: 100vw;
+    height: 100vw;
+    max-width: 800px;
+    max-height: 800px;
+    background: radial-gradient(circle, rgba(220, 179, 77, 0.1) 0%, rgba(0,0,0,0) 70%);
     z-index: -1;
     pointer-events: none;
 }
@@ -42,27 +44,26 @@ body {
     background: linear-gradient(to right, var(--gold-light), var(--gold-dark));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 800;
-    letter-spacing: 4px;
-    margin-top: 60px;
-    margin-bottom: 10px;
+    letter-spacing: 3px;
+    margin-top: 40px;
+    margin-bottom: 15px;
     text-shadow: 0px 10px 30px rgba(220, 179, 77, 0.2);
 }
 
 .subtitle {
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
     color: #a0aabf;
-    letter-spacing: 2px;
-    margin-bottom: 30px;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
 }
 
 .section-title {
-    
     color: #fff;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
     font-weight: 600;
-    margin: 80px 0 40px;
+    margin: 60px 0 40px;
     position: relative;
     display: inline-block;
 }
@@ -73,7 +74,7 @@ body {
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
+    width: 50px;
     height: 3px;
     background: var(--gold-main);
     border-radius: 5px;
@@ -84,18 +85,18 @@ body {
     background: linear-gradient(135deg, var(--gold-light), var(--gold-main));
     color: #000;
     border: none;
-    padding: 12px 30px;
+    padding: 14px 35px;
     font-weight: 800;
     font-size: 1rem;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(220, 179, 77, 0.3);
+    box-shadow: 0 5px 15px rgba(220, 179, 77, 0.2);
 }
 
 .btn:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 10px 25px rgba(220, 179, 77, 0.5);
+    box-shadow: 0 10px 25px rgba(220, 179, 77, 0.4);
 }
 
 .glow-btn {
@@ -103,68 +104,55 @@ body {
 }
 
 @keyframes pulse-glow {
-    0% { box-shadow: 0 0 0 0 rgba(220, 179, 77, 0.7); }
+    0% { box-shadow: 0 0 0 0 rgba(220, 179, 77, 0.6); }
     70% { box-shadow: 0 0 0 15px rgba(220, 179, 77, 0); }
     100% { box-shadow: 0 0 0 0 rgba(220, 179, 77, 0); }
 }
 
-/* Video Grid (Glassmorphism) */
+/* 🚀 Responsive CSS Grid for YouTube Videos */
 .video-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
-.video-box {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--card-border);
-    border-radius: 15px;
-    width: 240px;
-    height: 120px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: #a0aabf;
-    transition: all 0.4s ease;
+.video-wrapper {
     position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    border-radius: 15px;
     overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    border: 2px solid var(--card-border);
+    background: #000;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-.play-icon {
-    font-size: 1.5rem;
-    margin-bottom: 8px;
-    color: var(--gold-main);
-    transition: transform 0.3s ease;
-}
-
-.video-box:hover {
-    background: rgba(255, 255, 255, 0.08);
+.video-wrapper:hover {
+    transform: translateY(-8px);
     border-color: var(--gold-main);
-    transform: translateY(-5px);
-    color: #fff;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 30px rgba(220, 179, 77, 0.4);
 }
 
-.video-box:hover .play-icon {
-    transform: scale(1.2);
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
-/* Pricing Grid (3D Cards) */
+/* 🚀 Responsive CSS Grid for Pricing */
 .pricing-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-top: 20px;
-    padding: 0 20px;
-    perspective: 1000px; /* Needed for 3D effect */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    perspective: 1000px;
 }
 
 .pricing-card {
@@ -172,23 +160,14 @@ body {
     backdrop-filter: blur(15px);
     border: 1px solid var(--card-border);
     border-radius: 20px;
-    width: 280px;
-    padding: 50px 20px;
+    width: 100%;
+    padding: 40px 25px;
     position: relative;
     transform-style: preserve-3d;
     transition: border-color 0.3s ease;
-}
-
-.pricing-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    border-radius: 20px;
-    border: 2px solid transparent;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0)) border-box;
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .pricing-card:hover {
@@ -196,12 +175,22 @@ body {
 }
 
 .card-content {
-    transform: translateZ(30px); /* Pushes content forward in 3D space */
+    transform: translateZ(30px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .popular {
-    background: linear-gradient(180deg, rgba(220, 179, 77, 0.05) 0%, var(--card-bg) 100%);
-    border: 1px solid rgba(220, 179, 77, 0.3);
+    background: linear-gradient(180deg, rgba(220, 179, 77, 0.08) 0%, var(--card-bg) 100%);
+    border: 1px solid rgba(220, 179, 77, 0.4);
+    transform: scale(1.05); /* Scales up on larger screens */
+}
+
+@media (max-width: 768px) {
+    .popular {
+        transform: scale(1); /* Reset scaling on mobile */
+    }
 }
 
 .popular-badge {
@@ -216,24 +205,219 @@ body {
     padding: 5px 15px;
     border-radius: 20px;
     letter-spacing: 1px;
+    white-space: nowrap;
 }
 
 .plan-name {
     color: var(--gold-main);
     font-size: 1.4rem;
     font-weight: 600;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     letter-spacing: 2px;
 }
 
+.plan-desc {
+    color: #a0aabf;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
 .plan-price {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
     font-weight: 800;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: #fff;
     text-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
+/* Pricing Feature List */
+.plan-features {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 30px;
+    flex-grow: 1; 
+}
+
+.plan-features li {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: flex-start;
+}
+
+.plan-features li:last-child {
+    border-bottom: none;
+}
+
+.check {
+    color: var(--gold-main);
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
 .plan-btn {
-    width: 85%;
+    width: 100%;
+    margin-top: auto;
+}
+/* ===============================
+   Payment Modal Styles (NEW)
+================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    border: 1px solid var(--gold-main);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 450px;
+    padding: 30px;
+    position: relative;
+    transform: translateY(50px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 20px rgba(220, 179, 77, 0.2);
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8rem;
+    color: #a0aabf;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: var(--gold-main);
+}
+
+.modal-title {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.modal-subtitle {
+    color: var(--gold-main);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+/* Tabs */
+.payment-tabs {
+    display: flex;
+    background: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.tab-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #a0aabf;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tab-btn.active {
+    background: var(--gold-main);
+    color: #000;
+}
+
+/* Payment Inputs */
+.payment-method-box {
+    display: none;
+    text-align: left;
+}
+
+.payment-method-box.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+.pay-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    padding: 14px 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.pay-input:focus {
+    border-color: var(--gold-main);
+    box-shadow: 0 0 10px rgba(220, 179, 77, 0.3);
+}
+
+.input-row {
+    display: flex;
+    gap: 15px;
+}
+
+/* QR Code Section */
+.qr-container {
+    background: #fff;
+    padding: 10px;
+    border-radius: 15px;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.qr-container img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.qr-text {
+    color: #a0aabf;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
