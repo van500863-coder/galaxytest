@@ -18,7 +18,7 @@
         
         <h1 class="main-title">GALAXY GLOBAL</h1>
         <p class="subtitle">THE WORLD'S LARGEST VIDEO PRODUCTION SQUAD</p>
-        <button class="btn primary-btn" onclick="alert('Sample will be sent to your email!')">GET 1 FREE SAMPLE</button>
+        <button class="btn primary-btn" onclick="openSampleModal()">GET 1 FREE SAMPLE</button>
     </header>
 
     <section class="masterpieces-section">
@@ -119,6 +119,24 @@
                 <p class="qr-text">សូមស្កេន QR តាមរយៈកម្មវិធីធនាគាររបស់អ្នក (ABA, ACLEDA, ល។)</p>
                 <button class="btn plan-btn" style="width: 100%; margin-top: 10px;" onclick="processPayment()">I HAVE PAID</button>
             </div>
+        </div>
+    </div>
+
+    <div id="sample-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeSampleModal()">&times;</span>
+            <h2 class="modal-title">Request Free Sample</h2>
+            <p class="modal-subtitle">សូមបំពេញព័ត៌មានខាងក្រោម</p>
+
+            <form id="sample-form" onsubmit="submitSampleForm(event)">
+                <input type="text" class="pay-input" id="sample-name" placeholder="Name" required>
+                <input type="email" class="pay-input" id="sample-email" placeholder="Email" required>
+                <input type="text" class="pay-input" id="sample-project" placeholder="Project (ex: YouTube, TikTok)" required>
+                <input type="text" class="pay-input" id="sample-timeline" placeholder="Timeline (ex: 3 days, 1 week)" required>
+                <textarea class="pay-input" id="sample-message" placeholder="Message / Detail" rows="4" required></textarea>
+                
+                <button type="submit" class="btn plan-btn glow-btn" style="width: 100%; margin-top: 15px;">SUBMIT NOW</button>
+            </form>
         </div>
     </div>
 
