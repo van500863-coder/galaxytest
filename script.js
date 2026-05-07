@@ -2,6 +2,34 @@
  * GALAXY GLOBAL - Interactions & Modal Logic
  */
 
+// --- Mobile Menu Toggle ---
+const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+
+if (mobileMenu) {
+    mobileMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = mobileMenu.querySelector('i');
+        // ប្តូរ Icon ពី Bar (≡) ទៅ Cross (X) ពេលចុច
+        if (navLinks.classList.contains('active')) {
+            icon.classList.replace('fa-bars', 'fa-xmark');
+        } else {
+            icon.classList.replace('fa-xmark', 'fa-bars');
+        }
+    });
+}
+
+// បិទ Menu វិញនៅពេលចុចលើ Link ណាមួយ (លើទូរស័ព្ទ)
+document.querySelectorAll('.nav-links li a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        if (mobileMenu) {
+            mobileMenu.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+        }
+    });
+});
+
+// --- Modal Logic ---
 const paymentModal = document.getElementById('payment-modal');
 const modalPlanInfo = document.getElementById('modal-plan-info');
 
@@ -32,6 +60,7 @@ function processPayment() {
     closePaymentModal();
 }
 
+// --- Sample Modal Logic ---
 const sampleModal = document.getElementById('sample-modal');
 const sampleForm = document.getElementById('sample-form');
 
@@ -50,9 +79,11 @@ function submitSampleForm(event) {
     sampleForm.reset(); 
 }
 
+// --- Animations on Scroll & 3D Tilt Effect ---
 document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll('.tilt-card');
 
+    // ដំណើរការ Tilt Effect តែនៅលើ Device ដែលមាន Mouse (កុំព្យូទ័រ) ប៉ុណ្ណោះ
     if (window.matchMedia("(pointer: fine)").matches) {
         cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -67,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const rotateY = ((x - centerX) / centerX) * 8;
 
                 const isPopular = card.classList.contains('popular');
-                const scale = isPopular ? 1.07 : 1.02;
+                const scale = isPopular ? 1.05 : 1.02;
 
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(${scale}, ${scale}, ${scale})`;
                 card.style.transition = `transform 0.1s ease`;
@@ -83,13 +114,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Fade-in Animation នៅពេល Scroll 
     const elementsToAnimate = document.querySelectorAll('.video-wrapper, .pricing-card, .service-card, .workflow-card');
     elementsToAnimate.forEach((el, index) => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(40px)';
+        el.style.transform = 'translateY(30px)';
         el.style.transition = 'all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)'; 
         
-        // Use Intersection Observer for better performance on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -100,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         } else {
                             el.style.transform = 'translateY(0)';
                         }
-                    }, 100 * (index % 3)); // Stagger by row roughly
+                    }, 100 * (index % 3)); // Delay តិចៗដើម្បីឱ្យវាចេញមកជាជួរ
                     observer.unobserve(el);
                 }
             });
@@ -110,6 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// --- Navbar Scroll Effect ---
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (navbar) {
