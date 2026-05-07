@@ -10,6 +10,7 @@ if (mobileMenu) {
     mobileMenu.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         const icon = mobileMenu.querySelector('i');
+        
         // ប្តូរ Icon ពី Bar (≡) ទៅ Cross (X) ពេលចុច
         if (navLinks.classList.contains('active')) {
             icon.classList.replace('fa-bars', 'fa-xmark');
