@@ -3,18 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galaxy Global - Pro Pricing</title>
+    <title>Galaxy Global</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
 
     <div class="bg-glow"></div>
 
+    <nav class="navbar">
+        <div class="nav-logo">GALAXY GLOBAL</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Masterpieces</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
     <header class="hero-section">
         <div class="logo-container">
-            <img src="./
-photo_2026-04-22_15-43-19.jpg" alt="Galaxy Global Logo" class="site-logo">
+            <img src="./photo_2026-04-22_15-43-19.jpg" alt="Galaxy Global Logo" class="site-logo">
         </div>
         
         <h1 class="main-title">GALAXY GLOBAL</h1>
@@ -22,7 +33,42 @@ photo_2026-04-22_15-43-19.jpg" alt="Galaxy Global Logo" class="site-logo">
         <button class="btn primary-btn" onclick="openSampleModal()">GET 1 FREE SAMPLE</button>
     </header>
 
-    <section class="masterpieces-section">
+    <section id="services" class="services-section">
+        <h2 class="section-title">OUR SERVICES</h2>
+        <p class="subtitle">សេវាកម្មដែលយើងផ្តល់ជូន</p>
+        <div class="services-grid">
+            <div class="service-card tilt-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-clapperboard"></i>
+                </div>
+                <h3>Video Editing</h3>
+                <p>កាត់តវីដេអូប្រកបដោយវិជ្ជាជីវៈសម្រាប់ YouTube, Facebook, និង TikTok។</p>
+            </div>
+            <div class="service-card tilt-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-palette"></i>
+                </div>
+                <h3>Color Grading</h3>
+                <p>កែពណ៌វីដេអូឲ្យស្រស់ស្អាត ទាក់ទាញ និងមានស្តង់ដារភាពយន្តកម្រិតខ្ពស់។</p>
+            </div>
+            <div class="service-card tilt-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <h3>Motion & VFX</h3>
+                <p>បញ្ចូល Effects និង Animations ធ្វើឲ្យវីដេអូកាន់តែរស់រវើក និងទាក់ទាញចំណាប់អារម្មណ៍។</p>
+            </div>
+            <div class="service-card tilt-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-music"></i>
+                </div>
+                <h3>Audio Design</h3>
+                <p>រៀបចំសំឡេង បញ្ចូលភ្លេង និង Sound Effects ឲ្យស៊ីចង្វាក់គ្នាឥតខ្ចោះ។</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="masterpieces-section">
         <h2 class="section-title">OUR MASTERPIECES</h2>
         <div class="video-grid">
             <div class="video-wrapper">
@@ -40,7 +86,7 @@ photo_2026-04-22_15-43-19.jpg" alt="Galaxy Global Logo" class="site-logo">
         </div>
     </section>
 
-    <section class="pricing-section">
+    <section id="pricing" class="pricing-section">
         <h2 class="section-title">CHOOSE YOUR PLAN</h2>
         <div class="pricing-grid">
             
@@ -91,6 +137,82 @@ photo_2026-04-22_15-43-19.jpg" alt="Galaxy Global Logo" class="site-logo">
             </div>
         </div>
     </section>
+
+    <section class="workflow-section">
+        <h2 class="section-title">How We Work</h2>
+        <p class="subtitle">A simple process that delivers premium results.</p>
+        
+        <div class="workflow-grid">
+            <div class="workflow-card tilt-card">
+                <div class="workflow-img">
+                    <img src="./image/1.png" alt="Step 1: Consultation">
+                </div>
+                <div class="workflow-step">01</div>
+                <h3>Consultation & Onboarding</h3>
+                <p>We will consult with you directly to fully understand the goals, preferences, and creative direction of your desired video.</p>
+            </div>
+
+            <div class="workflow-card tilt-card">
+                <div class="workflow-img">
+                    <img src="./image/2.jpg" alt="Step 2: Production">
+                </div>
+                <div class="workflow-step">02</div>
+                <h3>Creation & Editing</h3>
+                <p>Our expert team will begin organizing, editing, color grading, and adding artistic elements to transform your raw footage into a masterpiece.</p>
+            </div>
+
+            <div class="workflow-card tilt-card">
+                <div class="workflow-img">
+                    <img src="./image/4.jpg" alt="Step 3: Delivery">
+                </div>
+                <div class="workflow-step">03</div>
+                <h3>Delivery & Revisions</h3>
+                <p>We will send you the initial draft for review and make adjustments until you are 100% satisfied before delivering the final files.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer-section">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3 class="footer-logo">GALAXY GLOBAL</h3>
+                <p>The World's Largest Video Production Squad. Contact us for your next project. Let's create masterpieces together!</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><i class="fa-solid fa-envelope" style="color: var(--gold-main); margin-right: 8px;"></i> Email: contact@galaxyglobal.net</p>
+                <p><i class="fa-solid fa-phone" style="color: var(--gold-main); margin-right: 8px;"></i> Phone: +855 12 345 678</p>
+                <p><i class="fa-solid fa-location-dot" style="color: var(--gold-main); margin-right: 8px;"></i> Location: Phnom Penh, Cambodia</p>
+            </div>
+
+            <div class="footer-partners">
+                <h4>Our Partners</h4>
+                <div class="partners-logos">
+                    <div class="partner-logo-box">
+                        <img src="./image/Galaxy-Logo KH.png" alt="Galaxy Navatra KH">
+                        <span>Galaxy Navatra KH</span>
+                    </div>
+                    <div class="partner-logo-box">
+                        <img src="./image/Galaxy-Logo.png" alt="Galaxy Navatra">
+                        <span>Galaxy Navatra</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Galaxy Global. All Rights Reserved.</p>
+        </div>
+    </footer>
 
     <div id="payment-modal" class="modal-overlay">
         <div class="modal-content">
