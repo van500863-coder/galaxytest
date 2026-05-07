@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galaxy Global</title>
+    <title>Galaxy Global - Pro Pricing</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -14,6 +14,10 @@
 
     <nav class="navbar">
         <div class="nav-logo">GALAXY GLOBAL</div>
+        <!-- បន្ថែម Mobile Menu Toggle -->
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#services">Services</a></li>
@@ -30,7 +34,7 @@
         
         <h1 class="main-title">GALAXY GLOBAL</h1>
         <p class="subtitle">THE WORLD'S LARGEST VIDEO PRODUCTION SQUAD</p>
-        <button class="btn primary-btn" onclick="openSampleModal()">GET 1 FREE SAMPLE</button>
+        <button class="btn primary-btn glow-btn" onclick="openSampleModal()">GET 1 FREE SAMPLE</button>
     </header>
 
     <section id="services" class="services-section">
@@ -190,9 +194,9 @@
             
             <div class="footer-contact">
                 <h4>Contact Us</h4>
-                <p><i class="fa-solid fa-envelope" style="color: var(--gold-main); margin-right: 8px;"></i> Email: contact@galaxyglobal.net</p>
-                <p><i class="fa-solid fa-phone" style="color: var(--gold-main); margin-right: 8px;"></i> Phone: +855 12 345 678</p>
-                <p><i class="fa-solid fa-location-dot" style="color: var(--gold-main); margin-right: 8px;"></i> Location: Phnom Penh, Cambodia</p>
+                <p><i class="fa-solid fa-envelope" style="color: var(--gold-main); margin-right: 8px;"></i> contact@galaxyglobal.net</p>
+                <p><i class="fa-solid fa-phone" style="color: var(--gold-main); margin-right: 8px;"></i> +855 12 345 678</p>
+                <p><i class="fa-solid fa-location-dot" style="color: var(--gold-main); margin-right: 8px;"></i> Phnom Penh, Cambodia</p>
             </div>
 
             <div class="footer-partners">
@@ -208,16 +212,17 @@
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Galaxy Global. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- Payment Modal -->
     <div id="payment-modal" class="modal-overlay">
         <div class="modal-content">
             <span class="close-btn" onclick="closePaymentModal()">&times;</span>
-            <h2 class="modal-title">Complete Your Order</h2>
+            <h2 class="modal-title">Complete Order</h2>
             <p class="modal-subtitle" id="modal-plan-info">Plan: BASIC | Total: $20</p>
 
             <div class="payment-tabs">
@@ -239,16 +244,17 @@
                 <div class="qr-container">
                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=GalaxyGlobalPayment&color=dcb34d&bgcolor=1f2029" alt="Scan QR to Pay">
                 </div>
-                <p class="qr-text">សូមស្កេន QR តាមរយៈកម្មវិធីធនាគាររបស់អ្នក (ABA, ACLEDA, ល។)</p>
-                <button class="btn plan-btn" style="width: 100%; margin-top: 10px;" onclick="processPayment()">I HAVE PAID</button>
+                <p class="qr-text">សូមស្កេន QR តាមរយៈកម្មវិធីធនាគាររបស់អ្នក</p>
+                <button class="btn plan-btn glow-btn" style="width: 100%; margin-top: 10px;" onclick="processPayment()">I HAVE PAID</button>
             </div>
         </div>
     </div>
 
+    <!-- Sample Modal -->
     <div id="sample-modal" class="modal-overlay">
         <div class="modal-content">
             <span class="close-btn" onclick="closeSampleModal()">&times;</span>
-            <h2 class="modal-title">Request Free Sample</h2>
+            <h2 class="modal-title">Free Sample</h2>
             <p class="modal-subtitle">សូមបំពេញព័ត៌មានខាងក្រោម</p>
 
             <form id="sample-form" onsubmit="submitSampleForm(event)">
@@ -256,7 +262,7 @@
                 <input type="email" class="pay-input" id="sample-email" placeholder="Email" required>
                 <input type="text" class="pay-input" id="sample-project" placeholder="Project (ex: YouTube, TikTok)" required>
                 <input type="text" class="pay-input" id="sample-timeline" placeholder="Timeline (ex: 3 days, 1 week)" required>
-                <textarea class="pay-input" id="sample-message" placeholder="Message / Detail" rows="4" required></textarea>
+                <textarea class="pay-input" id="sample-message" placeholder="Message / Detail" rows="3" required></textarea>
                 
                 <button type="submit" class="btn plan-btn glow-btn" style="width: 100%; margin-top: 15px;">SUBMIT NOW</button>
             </form>
